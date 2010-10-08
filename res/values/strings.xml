@@ -14,10 +14,10 @@
      limitations under the License.
  -->
 <resources>
-	<string name="app_name">Countdown Timer</string>
+	<string name="app_name">Countdown Timer Widget</string>
 	<string name="timer_uninitialised">00:00:00</string>
 	<string name="start">Start!</string>
-	<string name="cancel">Cancel</string>
+	<string name="cancel">Cancel Timer</string>
 	<string name="new_timer">New Countdown!</string>
 	<string name="silent">Silent</string>
 	<string name="timer_expired">Countdown timer expired</string>

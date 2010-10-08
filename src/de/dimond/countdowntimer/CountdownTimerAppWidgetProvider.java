@@ -205,6 +205,22 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
         }
     }
 
+    @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        final int n = appWidgetIds.length;
+        
+        for (int i = 0; i < n; i++) {
+            int appWidgetId = appWidgetIds[i];
+
+            if(m_alarms.remove(appWidgetId)!=null) {
+                scheduleAlarm();
+            }
+            if(m_countdownTasks.containsKey(appWidgetIds)) {
+                m_countdownTasks.get(appWidgetId).cancel();
+            }
+        }
+    }
+
     private void scheduleAlarm() {
         Map.Entry<Integer, Long> nextAlarm = smallestValue(m_alarms);
         AlarmManager manager = (AlarmManager) m_context.getSystemService(Context.ALARM_SERVICE);
