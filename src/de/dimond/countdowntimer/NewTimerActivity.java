@@ -44,8 +44,8 @@ public class NewTimerActivity extends Activity implements OnClickListener {
     public static final String SECONDS_KEY = "SECONDS";
     public static final String SILENT_KEY = "SILENT";
 
-    public static final String TAG = "NewTimerActivity";
-    public static final boolean LOGD = true;
+    private static final String TAG = "NewTimerActivity";
+    private static final boolean LOGD = false;
 
     private int m_widgetId;
 

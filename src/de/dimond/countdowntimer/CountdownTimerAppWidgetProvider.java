@@ -51,7 +51,7 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
     private static final String VIBRATE_KEY = "VIBRATE";
     private static final String INSISTENT_KEY = "INSISTENT";
 
-    private static final boolean LOGD = true;
+    private static final boolean LOGD = false;
 
     private static AppWidgetManager m_widgetManager;
     private static Context m_context;
