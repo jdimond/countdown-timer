@@ -38,6 +38,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.preference.PreferenceManager;
+import android.provider.Settings;
 import android.util.Log;
 import android.widget.RemoteViews;
 
@@ -50,6 +51,7 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
 
     private static final String VIBRATE_KEY = "VIBRATE";
     private static final String INSISTENT_KEY = "INSISTENT";
+    private static final String RINGTONE_KEY = "RINGTONE";
 
     private static final boolean LOGD = false;
 
@@ -145,13 +147,13 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
 
     }
 
-    public void showNotification(int id, boolean isSilent, boolean vibrate, boolean insistent) {
+    public void showNotification(int id, Uri sound, boolean vibrate, boolean insistent) {
         Notification n = new Notification(R.drawable.stat_notify_alarm, m_context.getString(R.string.timer_expired),
                 System.currentTimeMillis());
 
         n.defaults = Notification.DEFAULT_LIGHTS;
-        if (!isSilent) {
-            n.defaults |= Notification.DEFAULT_SOUND;
+        if (!sound.equals(Uri.EMPTY)) {
+            n.sound = sound;
         }
         if (vibrate) {
             n.vibrate = new long[] { 0, 500, 200, 500, 200, 750 };
@@ -300,7 +302,13 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(m_context);
             boolean vibrate = preferences.getBoolean(VIBRATE_KEY, true);
             boolean insistent = preferences.getBoolean(INSISTENT_KEY, false);
-            showNotification(m_currentAlarmWidgetId, isSilent, vibrate, insistent);
+            Uri sound;
+            if(isSilent) {
+                sound = Uri.EMPTY;
+            } else {
+                sound = Uri.parse(preferences.getString(RINGTONE_KEY, Settings.System.DEFAULT_NOTIFICATION_URI.toString()));
+            }
+            showNotification(m_currentAlarmWidgetId, sound, vibrate, insistent);
 
             if (m_alarms.remove(m_currentAlarmWidgetId) == null) {
                 Log.w(TAG, "Inconsistent data! No Alarm with widgetId " + m_currentAlarmWidgetId + " in m_alarms!");

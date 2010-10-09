@@ -19,4 +19,7 @@
 	<CheckBoxPreference android:key="INSISTENT"
 		android:title="@string/insistent" android:summary="@string/insistent_desc"
 		android:defaultValue="false"></CheckBoxPreference>
+	<RingtonePreference android:key="RINGTONE" android:title="@string/alarm_sound"
+		android:showSilent="false" android:ringtoneType="alarm|notification"
+		android:showDefault="true" />
 </PreferenceScreen>

@@ -25,4 +25,5 @@
 	<string name="vibrate">Vibrate</string>
 	<string name="insistent">Insistent</string>
 	<string name="insistent_desc">Alarm continues until it\'s canceled</string>
+	<string name="alarm_sound">Alarm Ringtone</string>
 </resources>

@@ -25,4 +25,5 @@
 	<string name="vibrate">Vibrationsalarm</string>
 	<string name="insistent">Hartnäckig</string>
 	<string name="insistent_desc">Alarm klingelt bis man ihn abschaltet</string>
+	<string name="alarm_sound">Alarm Klingelton</string>
 </resources>
