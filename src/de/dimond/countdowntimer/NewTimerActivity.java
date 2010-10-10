@@ -39,10 +39,10 @@ public class NewTimerActivity extends Activity implements OnClickListener {
     public static final String INTENT_DATA_DURATION = "DURATION";
     public static final String INTENT_DATA_SILENT = "SILENT";
 
-    public static final String HOURS_KEY = "HOURS";
-    public static final String MINUTES_KEY = "MINUTES";
-    public static final String SECONDS_KEY = "SECONDS";
-    public static final String SILENT_KEY = "SILENT";
+    public static final String HOURS_KEY = "CTW_HOURS";
+    public static final String MINUTES_KEY = "CTW_MINUTES";
+    public static final String SECONDS_KEY = "CTW_SECONDS";
+    public static final String SILENT_KEY = "CTW_SILENT";
 
     private static final String TAG = "NewTimerActivity";
     private static final boolean LOGD = false;

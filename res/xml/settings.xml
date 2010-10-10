@@ -14,12 +14,12 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-	<CheckBoxPreference android:key="VIBRATE"
+	<CheckBoxPreference android:key="CTW_VIBRATE"
 		android:title="@string/vibrate" android:defaultValue="true"></CheckBoxPreference>
-	<CheckBoxPreference android:key="INSISTENT"
+	<CheckBoxPreference android:key="CTW_INSISTENT"
 		android:title="@string/insistent" android:summary="@string/insistent_desc"
 		android:defaultValue="false"></CheckBoxPreference>
-	<RingtonePreference android:key="RINGTONE" android:title="@string/alarm_sound"
+	<RingtonePreference android:key="CTW_RINGTONE" android:title="@string/alarm_sound"
 		android:showSilent="false" android:ringtoneType="alarm|notification"
 		android:showDefault="true" />
 </PreferenceScreen>
