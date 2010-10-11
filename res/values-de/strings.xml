@@ -26,4 +26,37 @@
 	<string name="insistent">Hartnäckig</string>
 	<string name="insistent_desc">Alarm klingelt bis man ihn abschaltet</string>
 	<string name="alarm_sound">Alarm Klingelton</string>
+	<string name="refresh_interval">Aktualisierungsinterval</string>
+	<string name="refresh_notice_title">Wichtige Information zur Batterie</string>
+	<string name="refresh_notice_text">
+Androids Widget API ist nicht für häufige Updates ausgelegt. Diese können großen
+Batterieverbrauch und Ruckeln und Abstürze des Home Screens verursachen.
+Countdown Timer Widget ist allerdings so ausgelegt möglichst wenig Batterie zu verbrauchen.
+Wenn kein Alarm aktiv ist oder der Bildschirm aus ist, wird Countdown Timer Widget keine
+CPU Ressourcen oder Energie brauchen. Alarme werden aber noch weiterhin ausgelöst werden.
+Wenn der Batterieverbrauch drastisch gestiegen ist oder der Home Screen ruckelt kann man
+das Aktualisierungsinterval auf ein akzeptables Maß steigern.
+	</string>
+	<string name="about_title">Über</string>
+	<string name="about_text">
+Diese Software is unter der Apache Lizenz 2.0 lizensiert.\n
+\n
+Quellcode auf meiner Seite herunterladen: http://www.dimond.de\n
+\n
+-v0.2: Effizienzprobleme behoben\n
+-v0.1.3: Bugfixes\n
+-v0.1.2: Bugfixes\n
+-v0.1.1: Klingeltonauswahl hinzugefügt\n
+	</string>
+	<string-array name="countdown_intervals">
+		<item>1 Sekunde</item>
+		<item>2 Sekunden</item>
+		<item>5 Sekunden</item>
+		<item>10 Sekunden</item>
+		<item>15 Sekunden</item>
+		<item>30 Sekunden</item>
+		<item>1 Minute</item>
+		<item>2 Minuten</item>
+		<item>5 Minuten</item>
+	</string-array>
 </resources>

@@ -26,4 +26,37 @@
 	<string name="insistent">Insistent</string>
 	<string name="insistent_desc">Alarm continues until it\'s canceled</string>
 	<string name="alarm_sound">Alarm Ringtone</string>
+	<string name="refresh_interval">Refresh Interval</string>
+	<string name="refresh_notice_title">Important Battery Notice</string>
+	<string name="refresh_notice_text">
+Unfortunately Androids widget API is not designed for frequent updates!
+These can cause battery drainage and anything from lags till total
+freezing of your launcher application. However Countdown Timer Widget is designed
+to use as little battery as possible. When no timer is activated or the screen is turned
+off Countdown Timer Widget will use no CPU and no battery. The alarms will be triggered anyway!
+If you experience lags or find that your battery drainage has increased significantly using this widget
+increase the refresh interval to an acceptable amount.
+	</string>
+	<string name="about_title">About</string>
+	<string name="about_text">
+This software is licensed under the Apache License 2.0.\n
+\n
+Download source at my website: http://www.dimond.de\n
+\n
+-v0.2: Fixed performance issues\n
+-v0.1.3: Bugfixes\n
+-v0.1.2: Bugfixes\n
+-v0.1.1: Added custom ringtone
+	</string>
+	<string-array name="countdown_intervals">
+		<item>1 second</item>
+		<item>2 seconds</item>
+		<item>5 seconds</item>
+		<item>10 seconds</item>
+		<item>15 seconds</item>
+		<item>30 seconds</item>
+		<item>1 minute</item>
+		<item>2 minutes</item>
+		<item>5 minutes</item>
+	</string-array>
 </resources>

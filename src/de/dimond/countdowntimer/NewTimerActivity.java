@@ -34,8 +34,8 @@ import com.android.example.NumberPicker;
 
 public class NewTimerActivity extends Activity implements OnClickListener {
 
-    public static final String INTENT_NEW_TIMER = "de.dimond.countdowntimer.INTENT_NEW_TIMER";
-    public static final String INTENT_CANCEL_TIMER = "de.dimond.countdowntimer.INTENT_CANCEL_TIMER";
+    public static final String INTENT_NEW_TIMER = "de.dimond.countdowntimer.intent.ACTION_NEW_TIMER";
+    public static final String INTENT_CANCEL_TIMER = "de.dimond.countdowntimer.intent.ACTION_CANCEL_TIMER";
     public static final String INTENT_DATA_DURATION = "DURATION";
     public static final String INTENT_DATA_SILENT = "SILENT";
 
@@ -84,12 +84,19 @@ public class NewTimerActivity extends Activity implements OnClickListener {
         cancelButton.setOnClickListener(this);
 
         Intent intent = getIntent();
-        m_widgetId = intent.getIntExtra(CountdownTimerAppWidgetProvider.INTENT_DATA_WIDGET_ID, -1);
+        m_widgetId = intent.getIntExtra(CountdownTimerService.INTENT_DATA_WIDGET_ID, -1);
         if (LOGD)
             Log.d(TAG, "Received Intent with Widget ID=" + m_widgetId);
         if (m_widgetId == -1) {
             finish();
         }
+    }
+
+    @Override
+    protected void onPause() {
+        /* Close because user doesn't want to schedule alarm */
+        finish();
+        super.onPause();
     }
 
     @Override
@@ -130,16 +137,16 @@ public class NewTimerActivity extends Activity implements OnClickListener {
             Intent intent = new Intent(INTENT_NEW_TIMER);
             intent.putExtra(INTENT_DATA_DURATION, hours * 3600 + minutes * 60 + seconds);
             intent.putExtra(INTENT_DATA_SILENT, silent);
-            intent.putExtra(CountdownTimerAppWidgetProvider.INTENT_DATA_WIDGET_ID, m_widgetId);
+            intent.putExtra(CountdownTimerService.INTENT_DATA_WIDGET_ID, m_widgetId);
 
-            sendBroadcast(intent);
+            startService(intent);
 
             finish();
         } else if (v.equals(findViewById(R.id.cancel_button))) {
             Intent intent = new Intent(INTENT_CANCEL_TIMER);
-            intent.putExtra(CountdownTimerAppWidgetProvider.INTENT_DATA_WIDGET_ID, m_widgetId);
+            intent.putExtra(CountdownTimerService.INTENT_DATA_WIDGET_ID, m_widgetId);
 
-            sendBroadcast(intent);
+            startService(intent);
 
             finish();
         }

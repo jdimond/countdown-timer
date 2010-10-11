@@ -16,14 +16,49 @@
 
 package de.dimond.countdowntimer;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
+import android.view.View;
+import android.widget.ListView;
 
-public class SettingsActivity extends PreferenceActivity {
+public class SettingsActivity extends PreferenceActivity implements OnPreferenceClickListener {
+    
+    private static final String REFRESH_NOTICE_KEY = "REFRESH_NOTICE";
+    private static final String ABOUT_NOTICE_KEY = "ABOUT_NOTICE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
+        Preference batteryNotice = findPreference(REFRESH_NOTICE_KEY);
+        batteryNotice.setOnPreferenceClickListener(this);
+        Preference aboutNotice = findPreference(ABOUT_NOTICE_KEY);
+        aboutNotice.setOnPreferenceClickListener(this);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+    }
+
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        if(preference.getKey().equals(REFRESH_NOTICE_KEY)) {
+            showMessageBox(R.string.refresh_notice_title, R.string.refresh_notice_text);
+        } else if(preference.getKey().equals(ABOUT_NOTICE_KEY)) {
+            showMessageBox(R.string.about_title, R.string.about_text);
+        }
+        return true;
+    }
+    
+    private void showMessageBox(int title, int message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setPositiveButton(android.R.string.ok, null);
+        builder.setMessage(message);
+        builder.create().show();
     }
 }

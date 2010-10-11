@@ -19,7 +19,13 @@
 	<CheckBoxPreference android:key="CTW_INSISTENT"
 		android:title="@string/insistent" android:summary="@string/insistent_desc"
 		android:defaultValue="false"></CheckBoxPreference>
-	<RingtonePreference android:key="CTW_RINGTONE" android:title="@string/alarm_sound"
-		android:showSilent="false" android:ringtoneType="alarm|notification"
-		android:showDefault="true" />
+	<RingtonePreference android:key="CTW_RINGTONE"
+		android:title="@string/alarm_sound" android:showSilent="false"
+		android:ringtoneType="alarm|notification" android:showDefault="true" />
+	<ListPreference android:key="CTW_REFRESH_INTERVAL"
+		android:title="@string/refresh_interval" android:entries="@array/countdown_intervals"
+		android:entryValues="@array/integer_countdown_intervals"
+		android:defaultValue="1"></ListPreference>
+	<Preference android:key="REFRESH_NOTICE" android:title="@string/refresh_notice_title"></Preference>
+	<Preference android:key="ABOUT_NOTICE" android:title="@string/about_title"></Preference>
 </PreferenceScreen>
