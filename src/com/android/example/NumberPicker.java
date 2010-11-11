@@ -20,6 +20,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.text.InputFilter;
 import android.text.InputType;
+import android.text.Selection;
 import android.text.Spanned;
 import android.text.method.NumberKeyListener;
 import android.util.AttributeSet;
@@ -269,6 +270,7 @@ public class NumberPicker extends LinearLayout implements OnClickListener,
     }
 
     public void onFocusChange(View v, boolean hasFocus) {
+        mText.setSelection(0, mText.length());
 
         /* When focus is lost check that the text field
          * has valid values.

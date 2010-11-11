@@ -38,7 +38,7 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
             intent.putExtra(CountdownTimerService.INTENT_DATA_WIDGET_ID, appWidgetId);
             context.startService(intent);
 
-            RemoteViews views = buildRemoteView(context, appWidgetId);
+            RemoteViews views = buildRemoteView(context, appWidgetId, null);
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
     }
@@ -65,7 +65,7 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
         }
     }
 
-    public static RemoteViews buildRemoteView(Context context, int widgetId) {
+    public static RemoteViews buildRemoteView(Context context, int widgetId, String description) {
         Intent intent = new Intent(context, NewTimerActivity.class);
         intent.setData(Uri.parse("widget://" + widgetId));
 
@@ -74,7 +74,13 @@ public class CountdownTimerAppWidgetProvider extends AppWidgetProvider {
 
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.countdown_timer_widget);
+        RemoteViews views;
+        if (description == null) {
+            views = new RemoteViews(context.getPackageName(), R.layout.countdown_timer_widget);
+        } else {
+            views = new RemoteViews(context.getPackageName(), R.layout.countdown_timer_widget_desc);
+            views.setTextViewText(R.id.description_text, description);
+        }
         views.setOnClickPendingIntent(R.id.timer_text, pendingIntent);
 
         return views;

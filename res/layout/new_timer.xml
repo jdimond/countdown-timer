@@ -23,43 +23,60 @@
 	<View android:layout_width="fill_parent"
 		android:layout_marginBottom="10dp" android:layout_height="2dp"
 		android:background="@android:drawable/divider_horizontal_dark" />
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:orientation="vertical">
-
+	<ScrollView android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
 		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_marginBottom="10dp" android:layout_marginLeft="3dp"
-			android:layout_marginRight="3dp">
-			<com.android.example.NumberPicker
-				android:id="@+id/hours" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" />
-			<TextView android:text=":" android:layout_width="wrap_content"
-				android:gravity="center" android:layout_height="fill_parent"
-				android:textSize="30sp" android:textColor="#fff" />
-			<com.android.example.NumberPicker
-				android:id="@+id/minutes" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" />
-			<TextView android:text=":" android:layout_width="wrap_content"
-				android:gravity="center" android:layout_height="fill_parent"
-				android:textSize="30sp" android:textColor="#fff" />
-			<com.android.example.NumberPicker
-				android:id="@+id/seconds" android:layout_width="wrap_content"
-				android:layout_height="wrap_content" />
-		</LinearLayout>
-		<CheckBox android:id="@+id/silent" android:layout_width="fill_parent"
-			android:layout_height="wrap_content" android:text="@string/silent">
-		</CheckBox>
-		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_width="fill_parent" android:layout_height="wrap_content"
-			android:background="#bbb">
-			<Button android:layout_width="fill_parent" android:id="@+id/start_button"
-				android:layout_marginTop="3dp" android:layout_height="fill_parent"
-				android:text="@string/start" android:layout_weight="1" />
-			<Button android:layout_width="fill_parent" android:id="@+id/cancel_button"
-				android:layout_marginTop="3dp" android:layout_height="fill_parent"
-				android:text="@string/cancel" android:layout_weight="1" />
-		</LinearLayout>
+			android:orientation="vertical">
+			<!-- Dummy item to prevent EditText from receiving focus -->
+			<LinearLayout android:focusable="true"
+				android:focusableInTouchMode="true" android:layout_width="0px"
+				android:layout_height="0px" />
+			<!-- set nextFocusUp/Down to prevent the LinearLayout from getting focus 
+				again -->
+			<Spinner android:id="@+id/recent_timers"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:nextFocusUp="@+id/recent_timers" android:nextFocusLeft="@+id/recent_timers"></Spinner>
+			<EditText android:id="@+id/description"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:layout_marginLeft="2dp" android:layout_marginRight="2dp"
+				android:hint="@string/description" android:inputType="textCapSentences|textAutoCorrect"
+				android:imeOptions="actionDone" android:singleLine="true"
+				android:selectAllOnFocus="true">
+			</EditText>
 
-	</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="wrap_content" android:layout_height="wrap_content"
+				android:layout_marginBottom="10dp">
+				<com.android.example.NumberPicker
+					android:id="@+id/hours" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+				<TextView android:text=":" android:layout_width="wrap_content"
+					android:gravity="center" android:layout_height="fill_parent"
+					android:textSize="30sp" android:textColor="#fff" />
+				<com.android.example.NumberPicker
+					android:id="@+id/minutes" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+				<TextView android:text=":" android:layout_width="wrap_content"
+					android:gravity="center" android:layout_height="fill_parent"
+					android:textSize="30sp" android:textColor="#fff" />
+				<com.android.example.NumberPicker
+					android:id="@+id/seconds" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+			</LinearLayout>
+			<CheckBox android:id="@+id/silent" android:layout_width="fill_parent"
+				android:layout_height="wrap_content" android:text="@string/silent">
+			</CheckBox>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:layout_width="fill_parent" android:layout_height="wrap_content"
+				android:background="#bbb">
+				<Button android:layout_width="fill_parent" android:id="@+id/start_button"
+					android:layout_marginTop="3dp" android:layout_height="fill_parent"
+					android:text="@string/start" android:layout_weight="1" />
+				<Button android:layout_width="fill_parent" android:id="@+id/cancel_button"
+					android:layout_marginTop="3dp" android:layout_height="fill_parent"
+					android:text="@string/cancel" android:layout_weight="1" />
+			</LinearLayout>
+		</LinearLayout>
+	</ScrollView>
 </LinearLayout>

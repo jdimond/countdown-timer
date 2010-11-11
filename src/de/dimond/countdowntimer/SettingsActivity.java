@@ -25,7 +25,7 @@ import android.view.View;
 import android.widget.ListView;
 
 public class SettingsActivity extends PreferenceActivity implements OnPreferenceClickListener {
-    
+
     private static final String REFRESH_NOTICE_KEY = "REFRESH_NOTICE";
     private static final String ABOUT_NOTICE_KEY = "ABOUT_NOTICE";
 
@@ -46,14 +46,14 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        if(preference.getKey().equals(REFRESH_NOTICE_KEY)) {
+        if (preference.getKey().equals(REFRESH_NOTICE_KEY)) {
             showMessageBox(R.string.refresh_notice_title, R.string.refresh_notice_text);
-        } else if(preference.getKey().equals(ABOUT_NOTICE_KEY)) {
+        } else if (preference.getKey().equals(ABOUT_NOTICE_KEY)) {
             showMessageBox(R.string.about_title, R.string.about_text);
         }
         return true;
     }
-    
+
     private void showMessageBox(int title, int message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);

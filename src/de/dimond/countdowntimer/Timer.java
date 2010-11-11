@@ -18,17 +18,41 @@ package de.dimond.countdowntimer;
 
 import java.io.Serializable;
 
-public class Alarm implements Comparable<Alarm>, Serializable {
-    private static final long serialVersionUID = -938682120428006492L;
+public class Timer implements Serializable {
+    private static final long serialVersionUID = 9045684051965285109L;
 
-    public final long m_when;
-    public final String m_description;
-    public final boolean m_isSilent;
+    private final int m_hours;
+    private final int m_minutes;
+    private final int m_seconds;
+    private final String m_description;
+    private final boolean m_isSilent;
 
-    public Alarm(long when, String description, boolean isSilent) {
-        this.m_when = when;
+    public Timer(int hours, int minutes, int seconds, String description, boolean isSilent) {
+        this.m_hours = hours;
+        this.m_minutes = minutes;
+        this.m_seconds = seconds;
         this.m_description = description;
         this.m_isSilent = isSilent;
+    }
+
+    public int getSeconds() {
+        return m_seconds;
+    }
+
+    public int getMinutes() {
+        return m_minutes;
+    }
+
+    public int getHours() {
+        return m_hours;
+    }
+
+    public String getDescription() {
+        return m_description;
+    }
+
+    public boolean isSilent() {
+        return m_isSilent;
     }
 
     @Override
@@ -36,8 +60,9 @@ public class Alarm implements Comparable<Alarm>, Serializable {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((m_description == null) ? 0 : m_description.hashCode());
-        result = prime * result + (m_isSilent ? 1231 : 1237);
-        result = prime * result + (int) (m_when ^ (m_when >>> 32));
+        result = prime * result + m_hours;
+        result = prime * result + m_minutes;
+        result = prime * result + m_seconds;
         return result;
     }
 
@@ -49,27 +74,27 @@ public class Alarm implements Comparable<Alarm>, Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Alarm other = (Alarm) obj;
+        Timer other = (Timer) obj;
         if (m_description == null) {
             if (other.m_description != null)
                 return false;
         } else if (!m_description.equals(other.m_description))
             return false;
-        if (m_isSilent != other.m_isSilent)
+        if (m_hours != other.m_hours)
             return false;
-        if (m_when != other.m_when)
+        if (m_minutes != other.m_minutes)
+            return false;
+        if (m_seconds != other.m_seconds)
             return false;
         return true;
     }
 
     @Override
     public String toString() {
-        return "Alarm [m_when=" + m_when + ", m_isSilent=" + m_isSilent + ", m_description=" + m_description + "]";
+        if (m_description != null) {
+            return String.format("%02d:%02d:%02d (%s)", m_hours, m_minutes, m_seconds, m_description);
+        } else {
+            return String.format("%02d:%02d:%02d", m_hours, m_minutes, m_seconds);
+        }
     }
-
-    @Override
-    public int compareTo(Alarm another) {
-        return Long.signum(m_when - another.m_when);
-    }
-
 }

@@ -17,10 +17,12 @@
 	<string name="timer_uninitialised">00:00:00</string>
 	<string name="start">Start!</string>
 	<string name="cancel">Countdown abbrechen</string>
-	<string name="new_timer">Neuer Countdown!</string>
+	<string name="new_timer">Neuer Countdown</string>
 	<string name="silent">Stumm</string>
-	<string name="timer_expired">Countdown abgelaufen!</string>
+	<string name="description">Beschreibung (optional)</string>
+	<string name="timer_expired">Timer abgelaufen!</string>
 	<string name="click_to_remove">Hier klicken um Benachrichtung zu schliessen!</string>
+	<string name="recently_used">Zuletzt benutzte Timer</string>
 	<string name="settings">Einstellungen</string>
 	<string name="vibrate">Vibrationsalarm</string>
 	<string name="insistent">Hartnäckig</string>
@@ -43,6 +45,7 @@ Diese Software is unter der Apache Lizenz 2.0 lizensiert.\n
 \n
 Quellcode auf meiner Seite herunterladen: http://www.dimond.de\n
 \n
+-v0.3: Kürzlich benutzte Timer und Beschreibungen hinzugefügt\n
 -v0.2: Effizienzprobleme behoben\n
 -v0.1.3: Bugfixes\n
 -v0.1.2: Bugfixes\n
