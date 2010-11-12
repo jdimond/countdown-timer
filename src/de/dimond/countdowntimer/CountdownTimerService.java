@@ -212,7 +212,7 @@ public class CountdownTimerService extends Service implements SharedPreferences.
             boolean insistent = m_preferences.getBoolean(INSISTENT_KEY, false);
 
             String streamTypeStr = m_preferences.getString(VOLUME_SOURCE_KEY,
-                    Integer.toString(AudioManager.STREAM_NOTIFICATION));
+                    Integer.toString(AudioManager.STREAM_ALARM));
             int streamType;
             try {
                 streamType = Integer.parseInt(streamTypeStr);
