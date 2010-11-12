@@ -22,6 +22,9 @@
 	<RingtonePreference android:key="CTW_RINGTONE"
 		android:title="@string/alarm_sound" android:showSilent="false"
 		android:ringtoneType="alarm|notification" android:showDefault="true" />
+	<ListPreference android:key="CTW_VOLUME_SOURCE" android:title="@string/volume"
+		android:summary="@string/volume_desc" android:entries="@array/volume_sources">
+	</ListPreference>
 	<ListPreference android:key="CTW_REFRESH_INTERVAL"
 		android:title="@string/refresh_interval" android:entries="@array/countdown_intervals"
 		android:entryValues="@array/integer_countdown_intervals"

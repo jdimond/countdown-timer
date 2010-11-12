@@ -29,7 +29,7 @@
 		</receiver>
 
 		<activity android:name="NewTimerActivity" android:theme="@android:style/Theme.Dialog" android:screenOrientation="portrait"></activity>
-		<activity android:name="SettingsActivity"></activity>
+		<activity android:name="SettingsActivity" android:excludeFromRecents="true" android:noHistory="true"></activity>
 		<service android:name="CountdownTimerService">
 			<intent-filter>
 				<action android:name="de.dimond.countdowntimer.intent.ACTION_NEW_TIMER" />

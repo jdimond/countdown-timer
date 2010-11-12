@@ -17,7 +17,9 @@
 package de.dimond.countdowntimer;
 
 import android.app.AlertDialog;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceActivity;
@@ -28,11 +30,22 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 
     private static final String REFRESH_NOTICE_KEY = "REFRESH_NOTICE";
     private static final String ABOUT_NOTICE_KEY = "ABOUT_NOTICE";
+    private static final String VOLUME_SOURCE_KEY = "CTW_VOLUME_SOURCE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
+
+        /* Set up Volume noises */
+        ListPreference volume = (ListPreference) findPreference(VOLUME_SOURCE_KEY);
+        volume.setEntryValues(new String[] {
+            Integer.toString(AudioManager.STREAM_RING),
+            Integer.toString(AudioManager.STREAM_MUSIC),
+            Integer.toString(AudioManager.STREAM_ALARM),
+            Integer.toString(AudioManager.STREAM_NOTIFICATION)
+        });
+
         Preference batteryNotice = findPreference(REFRESH_NOTICE_KEY);
         batteryNotice.setOnPreferenceClickListener(this);
         Preference aboutNotice = findPreference(ABOUT_NOTICE_KEY);

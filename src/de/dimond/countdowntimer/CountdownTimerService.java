@@ -40,6 +40,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
@@ -65,6 +66,7 @@ public class CountdownTimerService extends Service implements SharedPreferences.
     private static final String INSISTENT_KEY = "CTW_INSISTENT";
     private static final String RINGTONE_KEY = "CTW_RINGTONE";
     private static final String REFRESH_INTERVAL_KEY = "CTW_REFRESH_INTERVAL";
+    private static final String VOLUME_SOURCE_KEY = "CTW_VOLUME_SOURCE";
 
     private static final String ALARMS_FILE = "alarms";
 
@@ -209,6 +211,16 @@ public class CountdownTimerService extends Service implements SharedPreferences.
             boolean vibrate = m_preferences.getBoolean(VIBRATE_KEY, true);
             boolean insistent = m_preferences.getBoolean(INSISTENT_KEY, false);
 
+            String streamTypeStr = m_preferences.getString(VOLUME_SOURCE_KEY,
+                    Integer.toString(AudioManager.STREAM_NOTIFICATION));
+            int streamType;
+            try {
+                streamType = Integer.parseInt(streamTypeStr);
+            } catch (NumberFormatException e) {
+                streamType = AudioManager.STREAM_NOTIFICATION;
+                Log.w(TAG, e);
+            }
+
             Uri sound;
             if (isSilent) {
                 sound = Uri.EMPTY;
@@ -216,7 +228,7 @@ public class CountdownTimerService extends Service implements SharedPreferences.
                 sound = Uri.parse(m_preferences.getString(RINGTONE_KEY,
                         Settings.System.DEFAULT_NOTIFICATION_URI.toString()));
             }
-            showNotification(widgetId, description, sound, vibrate, insistent);
+            showNotification(widgetId, description, streamType, sound, vibrate, insistent);
 
             removeAlarm(widgetId);
 
@@ -225,7 +237,7 @@ public class CountdownTimerService extends Service implements SharedPreferences.
                 m_countdownTasks.remove(widgetId);
             }
 
-            /* No alarms left stopp service */
+            /* No alarms left stop service */
             if (m_alarms.size() == 0) {
                 if (LOGD)
                     Log.d(TAG, "Stopping service!");
@@ -243,13 +255,15 @@ public class CountdownTimerService extends Service implements SharedPreferences.
         return START_STICKY;
     }
 
-    public void showNotification(int id, String description, Uri sound, boolean vibrate, boolean insistent) {
+    public void showNotification(int id, String description, int streamType, Uri sound, boolean vibrate,
+            boolean insistent) {
         String title = (description == null) ? "" : description + ": ";
         title += getString(R.string.timer_expired);
 
         Notification n = new Notification(R.drawable.stat_notify_alarm, title, System.currentTimeMillis());
 
         n.defaults = Notification.DEFAULT_LIGHTS;
+        n.audioStreamType = streamType;
         if (!sound.equals(Uri.EMPTY)) {
             n.sound = sound;
         }

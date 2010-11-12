@@ -16,6 +16,7 @@
 
 package de.dimond.countdowntimer;
 
+import java.io.EOFException;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -105,13 +106,6 @@ public class NewTimerActivity extends Activity implements OnClickListener, OnIte
         if (m_widgetId == -1) {
             finish();
         }
-    }
-
-    @Override
-    protected void onPause() {
-        /* Close because user doesn't want to schedule alarm */
-        finish();
-        super.onPause();
     }
 
     @Override
@@ -232,6 +226,8 @@ public class NewTimerActivity extends Activity implements OnClickListener, OnIte
             }
         } catch (FileNotFoundException e) {
             /* Thats ok, just use default timer */
+        } catch (EOFException e) {
+            /* Thats ok too, this is normal */
         } catch (IOException e) {
             /* Use default timer, if recentList is empty */
             Log.w(TAG, e);

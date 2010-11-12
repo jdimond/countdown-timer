@@ -28,6 +28,8 @@
 	<string name="insistent">Hartnäckig</string>
 	<string name="insistent_desc">Alarm klingelt bis man ihn abschaltet</string>
 	<string name="alarm_sound">Alarm Klingelton</string>
+	<string name="volume">Lautstärke</string>
+	<string name="volume_desc">Welche Lautstärkequelle soll benutzt werden</string>
 	<string name="refresh_interval">Aktualisierungsinterval</string>
 	<string name="refresh_notice_title">Wichtige Information zur Batterie</string>
 	<string name="refresh_notice_text">
@@ -61,5 +63,11 @@ Quellcode auf meiner Seite herunterladen: http://www.dimond.de\n
 		<item>1 Minute</item>
 		<item>2 Minuten</item>
 		<item>5 Minuten</item>
+	</string-array>
+	<string-array name="volume_sources">
+		<item>Klingelton Lautstärke</item>
+		<item>Medien Lautstärke</item>
+		<item>Wecker Lautstärke</item>
+		<item>Benachrichtigung Lautstärke</item>
 	</string-array>
 </resources>
