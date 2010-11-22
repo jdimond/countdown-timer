@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<Preference android:key="HELP_NOTICE" android:title="@string/help_title"></Preference>
 	<CheckBoxPreference android:key="CTW_VIBRATE"
 		android:title="@string/vibrate" android:defaultValue="true"></CheckBoxPreference>
 	<CheckBoxPreference android:key="CTW_INSISTENT"

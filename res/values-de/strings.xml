@@ -47,15 +47,22 @@ Diese Software is unter der Apache Lizenz 2.0 lizensiert.\n
 \n
 Quellcode auf meiner Seite herunterladen: http://www.dimond.de\n
 \n
--v0.3.1: Lautstärke Option hinzugefügt
+-v0.3.2: Klingelton-Bug gefixt\n
+-v0.3.1: Lautstärke Option hinzugefügt\n
 -v0.3: Kürzlich benutzte Timer und Beschreibungen hinzugefügt\n
 -v0.2: Effizienzprobleme behoben\n
 -v0.1.3: Bugfixes\n
 -v0.1.2: Bugfixes\n
 -v0.1.1: Klingeltonauswahl hinzugefügt\n
 	</string>
-	<string name="dummy_text">
-Dieses Programm ist ein Widget und keine App! Bitte das Widget in der gewohnten Weise zum Homescreen hinzufügen.
+	<string name="help_title">Hilfe</string>
+	<string name="help_text">
+Dieses Programm ist ein Widget und keine App! Das Widget einfach in gewohnter Manier zum Homescreen
+hinzufügen. Um die Einstellungen später zu ändern einfach während dem Erstellen eines neuen Timers die
+Menü-Taste drücken.\n
+Falls der Homescreen hängt/abstürzt bitte \"Wichtige Information zur Batterie\" lesen!\n
+\n
+Irgendwelche Fragen/Anregungen? Dann schreib an countdowntimer@dimond.de
 	</string>
 	<string-array name="countdown_intervals">
 		<item>1 Sekunde</item>

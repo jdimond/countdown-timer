@@ -30,6 +30,7 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 
     private static final String REFRESH_NOTICE_KEY = "REFRESH_NOTICE";
     private static final String ABOUT_NOTICE_KEY = "ABOUT_NOTICE";
+    private static final String HELP_NOTICE_KEY = "HELP_NOTICE";
     private static final String VOLUME_SOURCE_KEY = "CTW_VOLUME_SOURCE";
 
     @Override
@@ -50,6 +51,8 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
         batteryNotice.setOnPreferenceClickListener(this);
         Preference aboutNotice = findPreference(ABOUT_NOTICE_KEY);
         aboutNotice.setOnPreferenceClickListener(this);
+        Preference helpNotice = findPreference(HELP_NOTICE_KEY);
+        helpNotice.setOnPreferenceClickListener(this);
     }
 
     @Override
@@ -63,6 +66,8 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
             showMessageBox(R.string.refresh_notice_title, R.string.refresh_notice_text);
         } else if (preference.getKey().equals(ABOUT_NOTICE_KEY)) {
             showMessageBox(R.string.about_title, R.string.about_text);
+        } else if (preference.getKey().equals(HELP_NOTICE_KEY)) {
+            showMessageBox(R.string.help_title, R.string.help_text);
         }
         return true;
     }

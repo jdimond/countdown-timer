@@ -15,10 +15,9 @@
  -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="de.dimond.countdowntimer" android:versionCode="7"
-	android:versionName="0.3.1">
+	package="de.dimond.countdowntimer" android:versionCode="8"
+	android:versionName="0.3.2">
 	<application android:icon="@drawable/icon" android:label="@string/app_name">
-
 		<receiver android:name="CountdownTimerAppWidgetProvider">
 			<intent-filter>
 				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
@@ -28,15 +27,15 @@
 				android:resource="@xml/countdown_timer" />
 		</receiver>
 
-		<activity android:name="NewTimerActivity" android:theme="@android:style/Theme.Dialog" android:screenOrientation="portrait">
-		</activity>
-		<activity android:name="DummyActivity" android:theme="@android:style/Theme.Dialog">
+		<activity android:name="NewTimerActivity" android:theme="@android:style/Theme.Dialog"
+			android:screenOrientation="nosensor" android:launchMode="singleInstance"></activity>
+		<activity android:name="SettingsActivity" android:finishOnTaskLaunch="true"
+			android:launchMode="singleTop">
 			<intent-filter>
-				<action android:name="android.intent.action.MAIN"></action>
-				<category android:name="android.intent.category.LAUNCHER"></category>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.INFO" />
 			</intent-filter>
 		</activity>
-		<activity android:name="SettingsActivity" android:excludeFromRecents="true" android:noHistory="true"></activity>
 		<service android:name="CountdownTimerService">
 			<intent-filter>
 				<action android:name="de.dimond.countdowntimer.intent.ACTION_NEW_TIMER" />
