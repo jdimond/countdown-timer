@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Copyright (C) 2011 Станислав Волков
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+ -->
+<resources>
+	<string name="app_name">Countdown Timer Widget</string>
+	<string name="timer_uninitialised">00:00:00</string>
+	<string name="start">Начали!</string>
+	<string name="cancel">Закрыть Таймер</string>
+	<string name="new_timer">Новый Таймер</string>
+	<string name="silent">Тишина</string>
+	<string name="description">Описание (по желанию)</string>
+	<string name="timer_expired">Времи Истекло!</string>
+	<string name="click_to_remove">Нажми, чтобы убрать!</string>
+	<string name="recently_used">Последние использованные таймеры</string>
+	<string name="settings">Настройки</string>
+	<string name="vibrate">Настройки</string>
+	<string name="insistent">Упорность</string>
+	<string name="insistent_desc">Сигнал работает, пока не отключишь его</string>
+	<string name="alarm_sound">Сигнал Таймера</string>
+	<string name="volume">Сигнал</string>
+	<string name="volume_desc">Выберите сигнал таймера</string>
+	<string name="refresh_interval">Интервал Обновления</string>
+	<string name="refresh_notice_title">Важное замечание об аккумуляторе</string>
+	<string name="refresh_notice_text">К сожалению этот виджет не предназначен для частого
+		обновления! Оно может привести к разрядке аккумулятора, к лагам и
+		полному замораживанию запуска приложений. Виджет предназначен для
+		настолько маленькой разрядке аккумулятора, насколько возможно. Когда
+		таймер не активен или экран выключен виджет будет использовать
+		процессор и не будет использовать батарею. Сигнал сработает в любом
+		случае! Если у вас возникли задержки или вы обнаружите, что
+		аккумулятор садится значительно быстрее, увеличте интервал обновления
+		виджета до приемлемого.
+		.</string>
+	<string name="about_title">О программе</string>
+	<string name="about_text">Программное обеспечение лицензировано Apache
+		License 2.0.\n
+		\n
+		Скачать sourse можно на веб-сайте: http://www.dimond.de\n
+		Перевод на русский язык - MrBellagio (vk.com/s__u__v/)\n
+		\n
+		-v0.3.3: Added russian language support\n
+		-v0.3.2: Fixed ringtone bug\n
+		-v0.3.1: Added volume option (custom volume not possible with notifications,
+		sorry)\n
+		-v0.3: Added recent timers list and descriptions\n
+		-v0.2: Fixed performance issues\n
+		-v0.1.3: Bugfixes\n
+		-v0.1.2: Bugfixes\n
+		-v0.1.1: Added custom ringtone</string>
+	<string name="help_title">Help</string>
+	<string name="help_text">Это не приложение, а просто виджет, так что просто
+		добавьте виджет на рабочий стол. Для изменения настроек позже, просто
+		нажмите кнопку \"Меню\" при создании нового таймера.\n
+		Если у вас возникают лаги/зависания, пожалуйста прочтите \"Важное
+		замечание об аккумуляторе\"!\n
+		\n
+		Есть вопросы/замечания? Пожалуйста пишите на мой e-mail:
+		countdowntimer@dimond.de</string>
+	<string-array name="countdown_intervals">
+		<item>1 секунда</item>
+		<item>2 секунды</item>
+		<item>5 секунд</item>
+		<item>10 секунд</item>
+		<item>15 секунд</item>
+		<item>30 секунд</item>
+		<item>1 минута</item>
+		<item>2 минуты</item>
+		<item>5 минут</item>
+	</string-array>
+	<string-array name="integer_countdown_intervals">
+		<item>1</item>
+		<item>2</item>
+		<item>5</item>
+		<item>10</item>
+		<item>15</item>
+		<item>30</item>
+		<item>60</item>
+		<item>120</item>
+		<item>300</item>
+	</string-array>
+	<string-array name="volume_sources">
+		<item>Громкость звонка</item>
+		<item>Громкость мультимедиа</item>
+		<item>Громкость будильника</item>
+		<item>Громкость оповещения</item>
+	</string-array>
+</resources>
+

@@ -48,6 +48,7 @@ This software is licensed under the Apache License 2.0.\n
 \n
 Download source at my website: http://www.dimond.de\n
 \n
+-v0.3.3: Added russian language support\n
 -v0.3.2: Fixed ringtone bug\n
 -v0.3.1: Added volume option (custom volume not possible with notifications, sorry)\n
 -v0.3: Added recent timers list and descriptions\n
